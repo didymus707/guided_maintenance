@@ -1,0 +1,59 @@
+- !<AssetImportMetadata/c25b6b3b-8b3c-47f9-93d2-3bbb9ec45454>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 2cb38bf2-49b5-4286-bd06-085de48bc8da
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 2cb38bf2-49b5-4286-bd06-085de48bc8da
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> cb7afe56-684b-4a96-9b71-74b368bde604
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/cb7afe56-684b-4a96-9b71-74b368bde604>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: e8af264c-f5d9-4898-9aac-3d1a87400a4d
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    barColor: false
+    nominalWatts: false
+    samplesPerSecond: false
+    statusLabel: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - statusLabel: "Power Draw: Normal"
+      nominalWatts: !<float> 412.000000
+      samplesPerSecond: !<float> 6.000000
+      barColor: !<Vec4> {x: 0.350000, y: 1.000000, z: 0.500000, w: 0.900000}
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">B2BMaintenanceTelemetryUI – simulated live telemetry</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input string statusLabel = "Power Draw: Normal" {"hint":"Status headline"}'
+    - '// @input float nominalWatts = 412 {"hint":"Nominal simulated power draw (W)", "widget":"slider", "min":100, "max":1000, "step":10}'
+    - '// @input float samplesPerSecond = 6 {"hint":"Sample rate of the simulated telemetry (samples per second)", "widget":"slider", "min":1, "max":20, "step":1}'
+    - '// @input vec4 barColor = "{0.35, 1.0, 0.5, 0.9}" {"hint":"Graph bar color", "widget":"color"}'
+    - '// @ui {"widget":"group_end"}'

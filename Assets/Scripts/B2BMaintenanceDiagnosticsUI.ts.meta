@@ -1,0 +1,56 @@
+- !<AssetImportMetadata/28210f5c-0b4e-4549-b95e-85e0fb94660e>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 40db7e6f-98e5-4718-919d-d13513cc83e4
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 40db7e6f-98e5-4718-919d-d13513cc83e4
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> b027f97c-7617-4dec-ab71-d3a7c1aa3b80
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/b027f97c-7617-4dec-ab71-d3a7c1aa3b80>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 49771ade-e809-443e-899e-3c2662de1e3b
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    buttonLabel: false
+    caption: false
+    panelWidthCm: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - panelWidthCm: !<float> 30.000000
+      caption: Rack anchored · Ready to scan
+      buttonLabel: Run Hardware Diagnostics
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">B2BMaintenanceDiagnosticsUI – Run Hardware Diagnostics panel</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input float panelWidthCm = 30 {"hint":"Panel width (cm)", "widget":"slider", "min":20, "max":40, "step":0.5}'
+    - '// @input string caption = "Rack anchored · Ready to scan" {"hint":"Caption above the button"}'
+    - '// @input string buttonLabel = "Run Hardware Diagnostics" {"hint":"Diagnostics button label"}'
+    - '// @ui {"widget":"group_end"}'

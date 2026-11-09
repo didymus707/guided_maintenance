@@ -1,0 +1,95 @@
+- !<AssetImportMetadata/04eb518f-5f59-406b-8313-3540710acb80>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> f98849c0-22a0-4696-a733-67eb56d0f5f7
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> f98849c0-22a0-4696-a733-67eb56d0f5f7
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 243d4078-d073-4d6d-a942-efc803646178
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/243d4078-d073-4d6d-a942-efc803646178>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 44d96ed3-04ad-47d3-b576-069392f3a504
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    accentColor: false
+    bootBlinkCount: false
+    bootStepSeconds: false
+    faultBox: false
+    faultColor: false
+    leds: false
+    powerButton: false
+    rackFrame: false
+    rackSizeCm: false
+    scanColor: false
+    scanDurationSeconds: false
+    scanLine: false
+    stepArrow: false
+    targetChassis: false
+    wireColor: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - rackFrame: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      targetChassis: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      scanLine: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      faultBox: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      powerButton: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      leds: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      stepArrow: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      rackSizeCm: !<Vec3> {x: 60.000000, y: 200.000000, z: 100.000000}
+      scanDurationSeconds: !<float> 1.000000
+      bootBlinkCount: !<float> 4.000000
+      bootStepSeconds: 0.300000
+      wireColor: !<Vec4> {x: 0.900000, y: 0.970000, z: 1.000000, w: 0.950000}
+      accentColor: !<Vec4> {x: 0.350000, y: 0.900000, z: 1.000000, w: 0.600000}
+      scanColor: !<Vec4> {x: 0.250000, y: 0.600000, z: 1.000000, w: 0.950000}
+      faultColor: !<Vec4> {x: 1.000000, y: 0.200000, z: 0.200000, w: 1.000000}
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">B2BMaintenanceRackController – virtual server rack stand-in</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"References"}'
+    - '// @input SceneObject rackFrame {"hint":"Empty root the rack frame + filler server units are built under"}'
+    - '// @input SceneObject targetChassis {"hint":"Target blade chassis root (~130 cm off the floor). PSU slots, power button and LEDs live under it"}'
+    - '// @input SceneObject scanLine {"hint":"Blue diagnostics scan line; swept from the rack top to the floor"}'
+    - '// @input SceneObject faultBox {"hint":"Red bounding box around PSU Slot 2"}'
+    - '// @input SceneObject powerButton {"hint":"Virtual power button on the chassis (pinch to boot)"}'
+    - '// @input SceneObject leds {"hint":"Row of chassis status LEDs (boot sequence)"}'
+    - '// @input SceneObject stepArrow {"hint":"Pulsing 3D arrow pointing at the power button"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input vec3 rackSizeCm = "{60, 200, 100}" {"hint":"Rack width / height / depth in cm (real size)"}'
+    - '// @input float scanDurationSeconds = 1 {"hint":"Duration of the blue scan sweep, seconds", "widget":"slider", "min":0.3, "max":3, "step":0.1}'
+    - '// @input float bootBlinkCount = 4 {"hint":"Amber blink cycles before the LEDs settle on solid green", "widget":"slider", "min":1, "max":8, "step":1}'
+    - '// @input float bootStepSeconds = 0.3 {"hint":"Seconds per amber blink half-cycle / per green LED fill step", "widget":"slider", "min":0.1, "max":1, "step":0.05}'
+    - '// @input vec4 wireColor = "{0.9, 0.97, 1.0, 0.95}" {"hint":"Glowing wireframe color for the rack frame and target chassis", "widget":"color"}'
+    - '// @input vec4 accentColor = "{0.35, 0.9, 1.0, 0.6}" {"hint":"Accent color for filler server units and slot outlines", "widget":"color"}'
+    - '// @input vec4 scanColor = "{0.25, 0.6, 1.0, 0.95}" {"hint":"Diagnostics scan line color", "widget":"color"}'
+    - '// @input vec4 faultColor = "{1.0, 0.2, 0.2, 1.0}" {"hint":"Fault bounding box color", "widget":"color"}'
+    - '// @ui {"widget":"group_end"}'

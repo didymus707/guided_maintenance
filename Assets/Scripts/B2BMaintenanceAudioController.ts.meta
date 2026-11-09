@@ -1,0 +1,53 @@
+- !<AssetImportMetadata/90e8f622-9014-400d-9bc0-1d6cd49f8baf>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> f58f11b6-30e5-4b46-aee7-1271352ebb8c
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> f58f11b6-30e5-4b46-aee7-1271352ebb8c
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> ac097515-39d1-4d8a-8c63-dd09e7520e0b
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/ac097515-39d1-4d8a-8c63-dd09e7520e0b>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 5aaa72f2-2c38-4755-8fb2-2f908e20bcaa
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    muted: false
+    sfxVolume: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - sfxVolume: 0.800000
+      muted: false
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">B2BMaintenanceAudioController – sound cues</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input float sfxVolume = 0.8 {"hint":"Master volume for all sound cues", "widget":"slider", "min":0, "max":1, "step":0.05}'
+    - '// @input bool muted {"hint":"Mute all sound cues"}'
+    - '// @ui {"widget":"group_end"}'

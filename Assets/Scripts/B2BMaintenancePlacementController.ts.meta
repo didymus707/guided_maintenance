@@ -1,0 +1,80 @@
+- !<AssetImportMetadata/2df9dd4c-e959-4d7c-8d47-5d0563ccbc62>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 69838f83-5b4d-489e-a602-b4a929b19020
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 69838f83-5b4d-489e-a602-b4a929b19020
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 9267d135-650a-4246-86b0-af4c2a2cc4b8
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/9267d135-650a-4246-86b0-af4c2a2cc4b8>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 6555d20a-76d7-4852-819e-dcba154b5772
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    cameraObject: false
+    defaultDistanceCm: false
+    eyeHeightCm: false
+    floorTarget: false
+    ghostPose: false
+    maxDistanceCm: false
+    minDistanceCm: false
+    rackGhost: false
+    showGhost: false
+    useWorldQuery: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - cameraObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      ghostPose: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      rackGhost: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      floorTarget: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      eyeHeightCm: !<float> 160.000000
+      defaultDistanceCm: !<float> 110.000000
+      minDistanceCm: !<float> 70.000000
+      maxDistanceCm: !<float> 350.000000
+      useWorldQuery: true
+      showGhost: true
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">B2BMaintenancePlacementController – ghost rack + floor anchoring</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"References"}'
+    - '// @input SceneObject cameraObject {"hint":"The world camera (Camera Object)"}'
+    - '// @input SceneObject ghostPose {"hint":"Pose root moved to the gaze point on the floor (rack front-center at floor level)"}'
+    - '// @input SceneObject rackGhost {"hint":"Ghost rack outline (pinchable). Child of GhostPose, offset to the rack center"}'
+    - '// @input SceneObject floorTarget {"hint":"Large invisible floor collider; pinch anywhere on the floor to anchor"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input float eyeHeightCm = 160 {"hint":"Fallback floor: camera height above the floor in cm (used when no real surface is found)", "widget":"slider", "min":100, "max":200, "step":1}'
+    - '// @input float defaultDistanceCm = 110 {"hint":"Distance (cm) to place the rack front when the gaze does not hit the floor", "widget":"slider", "min":60, "max":300, "step":5}'
+    - '// @input float minDistanceCm = 70 {"hint":"Closest / farthest rack placement distance (cm)", "widget":"slider", "min":40, "max":200, "step":5}'
+    - '// @input float maxDistanceCm = 350 {"hint":"Farthest rack placement distance (cm)", "widget":"slider", "min":150, "max":800, "step":10}'
+    - '// @input bool useWorldQuery = true {"hint":"Use World Query hit tests to find the real floor (falls back to the virtual floor)"}'
+    - '// @input bool showGhost = true {"hint":"Show the ghost outline"}'
+    - '// @ui {"widget":"group_end"}'

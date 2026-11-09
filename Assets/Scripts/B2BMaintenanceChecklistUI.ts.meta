@@ -1,0 +1,68 @@
+- !<AssetImportMetadata/936f7adb-a45e-48bd-ab29-9ceb7fef94e6>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 751a3b28-a566-49f6-83c8-1234d67b0c62
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 751a3b28-a566-49f6-83c8-1234d67b0c62
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> a0b97947-8548-43e5-9a10-28dc9cc4b0f2
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/a0b97947-8548-43e5-9a10-28dc9cc4b0f2>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: d3207ecc-fd00-4cdc-95bc-cb287a50d21c
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    closeTicketLabel: false
+    doneColor: false
+    headerText: false
+    step1ButtonLabel: false
+    step1Text: false
+    step2Text: false
+    step3Text: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - headerText: "Ticket #4471 · PSU Slot 2 Fault"
+      step1Text: "Step 1: Swap PSU in Slot 2"
+      step2Text: "Step 2: Boot Diagnostics"
+      step3Text: "Step 3: Close Ticket"
+      step1ButtonLabel: "Step 1: Swap Complete"
+      closeTicketLabel: Close Ticket
+      doneColor: !<Vec4> {x: 0.350000, y: 1.000000, z: 0.500000, w: 1.000000}
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">B2BMaintenanceChecklistUI – 3-step repair checklist</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input string headerText = "Ticket #4471 · PSU Slot 2 Fault" {"hint":"Checklist header"}'
+    - '// @input string step1Text = "Step 1: Swap PSU in Slot 2" {"hint":"Step 1 label"}'
+    - '// @input string step2Text = "Step 2: Boot Diagnostics" {"hint":"Step 2 label"}'
+    - '// @input string step3Text = "Step 3: Close Ticket" {"hint":"Step 3 label"}'
+    - '// @input string step1ButtonLabel = "Step 1: Swap Complete" {"hint":"Gated confirm button label"}'
+    - '// @input string closeTicketLabel = "Close Ticket" {"hint":"Final button label"}'
+    - '// @input vec4 doneColor = "{0.35, 1.0, 0.5, 1.0}" {"hint":"Color for completed steps and the confirmed Step 1 button", "widget":"color"}'
+    - '// @ui {"widget":"group_end"}'

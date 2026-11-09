@@ -1,0 +1,62 @@
+- !<AssetImportMetadata/51597a77-02f9-4681-8e43-eee8d5d1986f>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 92002e78-66a9-4022-acb3-6103e447f9f6
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 92002e78-66a9-4022-acb3-6103e447f9f6
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 61ea7fd1-0fbe-4d78-b99a-23e373032cb0
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/61ea7fd1-0fbe-4d78-b99a-23e373032cb0>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 0954ec04-beb1-437c-b5e7-a21981f54ba8
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    animSeconds: false
+    charsPerSecond: false
+    offlineColor: false
+    slideDistanceCm: false
+    syncedColor: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - charsPerSecond: !<float> 60.000000
+      slideDistanceCm: !<float> 30.000000
+      animSeconds: 0.450000
+      syncedColor: !<Vec4> {x: 0.350000, y: 0.950000, z: 1.000000, w: 1.000000}
+      offlineColor: !<Vec4> {x: 1.000000, y: 0.900000, z: 0.250000, w: 1.000000}
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">B2BMaintenanceAuditLogUI – System Audit Log</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input float charsPerSecond = 60 {"hint":"Typing speed, characters per second", "widget":"slider", "min":10, "max":200, "step":5}'
+    - '// @input float slideDistanceCm = 30 {"hint":"Slide-out distance (cm) from behind the checklist", "widget":"slider", "min":0, "max":40, "step":1}'
+    - '// @input float animSeconds = 0.45 {"hint":"Seconds for the slide-out / fade-out animations", "widget":"slider", "min":0.1, "max":2, "step":0.05}'
+    - '// @input vec4 syncedColor = "{0.35, 0.95, 1.0, 1.0}" {"hint":"Log text color when synced", "widget":"color"}'
+    - '// @input vec4 offlineColor = "{1.0, 0.9, 0.25, 1.0}" {"hint":"Log text color in offline-sync state (real API failed, mock data shown)", "widget":"color"}'
+    - '// @ui {"widget":"group_end"}'

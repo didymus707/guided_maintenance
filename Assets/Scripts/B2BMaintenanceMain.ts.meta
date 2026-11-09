@@ -1,0 +1,101 @@
+- !<AssetImportMetadata/735771fd-1877-48f9-891f-646bd16b5637>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> f80ac988-760c-4ec1-8014-7cbc2dc26b6b
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> f80ac988-760c-4ec1-8014-7cbc2dc26b6b
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> dd739ff2-0f28-4d63-9688-ab3e44c8b007
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/dd739ff2-0f28-4d63-9688-ab3e44c8b007>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: fde09f03-9284-4ebf-a961-febedfd8a702
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    audio: false
+    auditLogHoldSeconds: false
+    auditLogPanel: false
+    backendManager: false
+    badgeHoldSeconds: false
+    checklistPanel: false
+    closeLogHoldSeconds: false
+    completeBadge: false
+    diagnosticsPanel: false
+    foldSeconds: false
+    placement: false
+    psus: false
+    rack: false
+    rackAnchor: false
+    rackFadeSeconds: false
+    telemetryGraph: false
+    ticketId: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - placement: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      rackAnchor: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      rack: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      psus: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+      diagnosticsPanel: !<MappingBased.AssignableType_4> 00000000-0000-0000-0000-000000000000
+      checklistPanel: !<MappingBased.AssignableType_5> 00000000-0000-0000-0000-000000000000
+      auditLogPanel: !<MappingBased.AssignableType_6> 00000000-0000-0000-0000-000000000000
+      telemetryGraph: !<MappingBased.AssignableType_7> 00000000-0000-0000-0000-000000000000
+      completeBadge: !<MappingBased.AssignableType_8> 00000000-0000-0000-0000-000000000000
+      audio: !<MappingBased.AssignableType_9> 00000000-0000-0000-0000-000000000000
+      backendManager: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      auditLogHoldSeconds: !<float> 5.000000
+      closeLogHoldSeconds: !<float> 1.000000
+      foldSeconds: 0.500000
+      badgeHoldSeconds: !<float> 3.000000
+      rackFadeSeconds: 1.200000
+      ticketId: !<string> 4471
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">B2BMaintenanceMain – guided maintenance flow</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"References"}'
+    - '// @input AssignableType_1 placement {"hint":"Ghost rack placement controller"}'
+    - '// @input SceneObject rackAnchor {"hint":"Root moved to the anchored pose; the rack and all panels live under it"}'
+    - '// @input AssignableType_2 rack {"hint":"Server rack stand-in (scan line, fault box, power button, LEDs, arrow)"}'
+    - '// @input AssignableType_3 psus {"hint":"Failed / replacement PSU swap controller"}'
+    - '// @input AssignableType_4 diagnosticsPanel {"hint":"Run Hardware Diagnostics panel"}'
+    - '// @input AssignableType_5 checklistPanel {"hint":"3-step checklist panel"}'
+    - '// @input AssignableType_6 auditLogPanel {"hint":"System Audit Log panel"}'
+    - '// @input AssignableType_7 telemetryGraph {"hint":"Telemetry graph panel"}'
+    - '// @input AssignableType_8 completeBadge {"hint":"Maintenance Complete badge"}'
+    - '// @input AssignableType_9 audio {"hint":"Sound cues"}'
+    - '// @input Component.ScriptComponent backendManager {"hint":"DualBackendManager.js ScriptComponent (all network / mock API logic)"}'
+    - '// @ui {"widget":"group_end"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input float auditLogHoldSeconds = 5 {"hint":"Seconds the Step 1 audit log stays visible before fading", "widget":"slider", "min":1, "max":15, "step":0.5}'
+    - '// @input float closeLogHoldSeconds = 1 {"hint":"Seconds the final (Close Ticket) audit log flash stays before the UI folds", "widget":"slider", "min":0.2, "max":5, "step":0.1}'
+    - '// @input float foldSeconds = 0.5 {"hint":"Seconds for checklist / audit log / telemetry to fold away", "widget":"slider", "min":0.1, "max":2, "step":0.05}'
+    - '// @input float badgeHoldSeconds = 3 {"hint":"Seconds the Maintenance Complete badge hovers before the rack fades", "widget":"slider", "min":1, "max":10, "step":0.5}'
+    - '// @input float rackFadeSeconds = 1.2 {"hint":"Seconds for the rack to fade out before the Lens resets", "widget":"slider", "min":0.2, "max":4, "step":0.1}'
+    - '// @input string ticketId = "4471" {"hint":"Ticket ID sent to the backend"}'
+    - '// @ui {"widget":"group_end"}'

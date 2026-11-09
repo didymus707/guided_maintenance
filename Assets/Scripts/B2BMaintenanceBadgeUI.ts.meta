@@ -1,0 +1,56 @@
+- !<AssetImportMetadata/e77a3388-2965-488c-91c8-24e787b13566>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 174af00a-50de-4597-b96b-d397db566487
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 174af00a-50de-4597-b96b-d397db566487
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 8298f72c-dfee-4571-a004-fd00fd676688
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/8298f72c-dfee-4571-a004-fd00fd676688>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  UpdateOrder: 0
+  ComponentUid: 67b84010-23bc-44e3-a7dc-68c63e259414
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    glowColor: false
+    headline: false
+    subtitle: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - headline: Maintenance Complete
+      subtitle: "Ticket #4471 closed · 2m 14s · Fidelity 100%"
+      glowColor: !<Vec4> {x: 0.350000, y: 1.000000, z: 0.500000, w: 1.000000}
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - '// @ui {"widget":"label", "label":"<span style=\"color: #60A5FA;\">B2BMaintenanceBadgeUI – Maintenance Complete badge</span>"}'
+    - '// @ui {"widget":"separator"}'
+    - '// @ui {"widget":"group_start", "label":"Settings"}'
+    - '// @input string headline = "Maintenance Complete" {"hint":"Badge headline"}'
+    - '// @input string subtitle = "Ticket #4471 closed · 2m 14s · Fidelity 100%" {"hint":"Badge subtitle"}'
+    - '// @input vec4 glowColor = "{0.35, 1.0, 0.5, 1.0}" {"hint":"Badge glow color", "widget":"color"}'
+    - '// @ui {"widget":"group_end"}'
