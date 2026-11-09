@@ -27,3 +27,5 @@ Workspaces/**
 
 # Added by Lens Studio (LEAF plugin)
 leaf_plugin_settings.json
+
+signing_key.pem
