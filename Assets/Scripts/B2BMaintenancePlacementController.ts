@@ -68,6 +68,17 @@ export class B2BMaintenancePlacementController extends BaseScriptComponent {
   showGhost: boolean = true
   @ui.group_end
 
+  /**
+   * When >= 0, the rack is lifted so a point this many cm above its base sits at
+   * the camera's height (set by Main to the scaled chassis height = eye level).
+   * When < 0, the rack stands on the floor.
+   */
+  eyeLevelHeightCm: number = -1
+
+  /** Sideways shift (cm, + = right) of the rack from the gaze point, set by Main
+   *  so the gaze centers on the rack + checklist work zone rather than the rack. */
+  lateralOffsetCm: number = 0
+
   private active = false
   private floorY = 0
   private floorYInitialized = false
@@ -169,11 +180,13 @@ export class B2BMaintenancePlacementController extends BaseScriptComponent {
       horizontalDist = new vec3(p.x - camPos.x, 0, p.z - camPos.z).length
     }
     horizontalDist = Math.max(this.minDistanceCm, Math.min(this.maxDistanceCm, horizontalDist))
-    const target = new vec3(camPos.x + flat.x * horizontalDist, this.floorY, camPos.z + flat.z * horizontalDist)
+    const baseY = this.eyeLevelHeightCm >= 0 ? camPos.y - this.eyeLevelHeightCm : this.floorY
+    const gaze = new vec3(camPos.x + flat.x * horizontalDist, baseY, camPos.z + flat.z * horizontalDist)
+    const rightDir = new vec3(-flat.z, 0, flat.x)
+    const target = gaze.add(rightDir.uniformScale(this.lateralOffsetCm))
 
-    // Rack front (+Z local) faces the user.
-    const toCam = new vec3(camPos.x - target.x, 0, camPos.z - target.z)
-    const yaw = Math.atan2(toCam.x, toCam.z)
+    // Rack front (+Z local) faces the user (along the gaze, so the offset rack stays square to them).
+    const yaw = Math.atan2(-flat.x, -flat.z)
     this.ghostRotation = quat.angleAxis(yaw, vec3.up())
 
     const gt = this.ghostPose.getTransform()

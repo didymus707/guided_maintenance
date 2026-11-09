@@ -104,6 +104,42 @@ export class B2BMaintenanceMain extends BaseScriptComponent {
   ticketId: string = "4471"
   @ui.group_end
 
+  @ui.separator
+  @ui.group_start("Layout")
+  @input
+  @hint("Rack size multiplier (1 = real 60x200x100 cm rack). Smaller fits the whole rack in view")
+  @widget(new SliderWidget(0.3, 1, 0.05))
+  rackScale: number = 0.5
+
+  @input
+  @hint("Panel size multiplier (bigger panels = bigger text and buttons)")
+  @widget(new SliderWidget(0.8, 2, 0.05))
+  panelScale: number = 1.5
+
+  @input
+  @hint("Gap (cm) between the rack's side edge and the checklist / telemetry panels")
+  @widget(new SliderWidget(0, 40, 1))
+  panelGapCm: number = 5
+
+  @input
+  @hint("How far (cm) the side panels sit in front of the rack's front plane")
+  @widget(new SliderWidget(0, 30, 1))
+  panelFrontCm: number = 10
+
+  @input
+  @hint("Lift the rack so the target chassis and panels sit at eye level (off = rack stands on the floor)")
+  eyeLevel: boolean = true
+
+  @input
+  @hint("Distance (cm) from you to the rack front when you anchor while looking straight ahead")
+  @widget(new SliderWidget(70, 300, 5))
+  rackDistanceCm: number = 160
+
+  @input
+  @hint("Shift the rack left so your gaze lands between the rack and the checklist (keeps both in view)")
+  centerOnWorkZone: boolean = true
+  @ui.group_end
+
   private _state: FlowStateName = FlowState.Placing
   private _history: string[] = []
   private taskStartTime = 0
@@ -128,7 +164,60 @@ export class B2BMaintenanceMain extends BaseScriptComponent {
     this.createEvent("OnStartEvent").bind(() => this.onStart())
   }
 
+  /**
+   * Sizes the rack (and its ghost) and places every panel around the scaled
+   * chassis, so the whole work zone fits in view. Panels scale on their own
+   * object; PanelVisibility animates the PanelRoot child, so this is preserved.
+   */
+  private applyLayout(): void {
+    const s = this.rackScale
+    const p = this.panelScale
+    const deg = Math.PI / 180
+    const one = new vec3(s, s, s)
+    this.rack.getSceneObject().getTransform().setLocalScale(one)
+    if (this.placement.ghostPose) this.placement.ghostPose.getTransform().setLocalScale(one)
+
+    const chassisY = 130 * s
+    this.placement.eyeLevelHeightCm = this.eyeLevel ? chassisY : -1
+    this.placement.defaultDistanceCm = this.rackDistanceCm
+    const edge = 30 * s + this.panelGapCm // rack half-width + gap
+    const z0 = this.panelFrontCm
+    const cos = Math.cos(15 * deg)
+    const sin = Math.sin(15 * deg)
+    const place = (so: SceneObject, pos: vec3, yawDeg: number) => {
+      const t = so.getTransform()
+      t.setLocalPosition(pos)
+      t.setLocalRotation(quat.angleAxis(yawDeg * deg, vec3.up()))
+      t.setLocalScale(new vec3(p, p, p))
+    }
+
+    // Right side: checklist (and the diagnostics button in the same spot), angled 15° inward.
+    const checklistW = 30 * p
+    const right = new vec3(edge + (checklistW / 2) * cos, chassisY, z0 + (checklistW / 2) * sin)
+    place(this.checklistPanel.getSceneObject(), right, -15)
+    place(this.diagnosticsPanel.getSceneObject(), right, -15)
+    // Center the gaze on the span from the rack's left edge to the checklist's right edge.
+    const workRight = edge + checklistW * cos
+    this.placement.lateralOffsetCm = this.centerOnWorkZone ? -(workRight - 30 * s) / 2 : 0
+
+    // Audit log slides out just right of the checklist, same height and angle.
+    const auditW = 30 * p
+    const step = checklistW / 2 + 1 + auditW / 2
+    place(this.auditLogPanel.getSceneObject(), right.add(new vec3(step * cos, 0, step * sin)), -15)
+
+    // Left side: telemetry graph, mirrored angle.
+    const telemetryW = 24 * p
+    place(this.telemetryGraph.getSceneObject(), new vec3(-(edge + (telemetryW / 2) * cos), chassisY, z0 + (telemetryW / 2) * sin), 15)
+
+    // Badge hovers just above the target chassis.
+    place(this.completeBadge.getSceneObject(), new vec3(0, chassisY + 20 * s + 8 * p, 8), 0)
+    print("[B2BMaintenance] layout: rackScale=" + s + " panelScale=" + p +
+      " distance=" + this.rackDistanceCm + " lateral=" + this.placement.lateralOffsetCm.toFixed(1) +
+      " ghostScale=" + (this.placement.ghostPose ? this.placement.ghostPose.getTransform().getWorldScale().y.toFixed(2) : "none"))
+  }
+
   private onStart(): void {
+    this.applyLayout()
     this.placement.onAnchorRequested.add((pose) => this.onAnchor(pose))
     this.diagnosticsPanel.onRunDiagnostics.add(() => this.onRunDiagnostics())
     this.psus.onFailedRemoved.add(() => this.onFailedRemoved())
