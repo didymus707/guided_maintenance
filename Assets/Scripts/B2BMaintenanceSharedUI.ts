@@ -36,10 +36,10 @@ const TYPE_SCALE: Record<TextRole, {size: number; weight: number}> = {
   Headline1: {size: 54, weight: 700},
   Headline2: {size: 48, weight: 700},
   Subheadline: {size: 41, weight: 700},
-  Button: {size: 39, weight: 500},
+  Button: {size: 39, weight: 700},
   Callout: {size: 39, weight: 700},
-  Body: {size: 39, weight: 500},
-  Caption: {size: 38, weight: 500}
+  Body: {size: 39, weight: 600},
+  Caption: {size: 38, weight: 600}
 }
 
 export function roleSize(role: TextRole, distanceCm: number = 110): number {
@@ -54,12 +54,12 @@ export function applyTextRole(t: Text, role: TextRole, distanceCm: number = 110)
 // ── Palette (light/bright only — the display is additive) ────────────────────
 export const UIColors = {
   white: new vec4(1, 1, 1, 1),
-  cyan: new vec4(0.35, 0.95, 1.0, 1),
-  dim: new vec4(0.8, 0.92, 1.0, 0.6),
+  cyan: new vec4(0.5, 1.0, 1.0, 1),
+  dim: new vec4(0.85, 0.95, 1.0, 0.85),
   green: new vec4(0.35, 1.0, 0.5, 1),
   yellow: new vec4(1.0, 0.9, 0.25, 1),
   red: new vec4(1.0, 0.45, 0.4, 1),
-  glassFill: new vec4(0.35, 0.85, 1.0, 0.1),
+  glassFill: new vec4(0.4, 0.9, 1.0, 0.18),
   border: new vec4(0.92, 0.98, 1.0, 1.0)
 }
 
@@ -88,14 +88,14 @@ export class PanelKit {
     rr.gradient = false
     rr.backgroundColor = fill
     rr.border = true
-    rr.borderSize = 0.22
+    rr.borderSize = 0.4
     rr.borderColor = borderColor
     rr.size = new vec2(w, h)
     rr.initialize()
     rr.size = new vec2(w, h)
     rr.backgroundColor = fill
     rr.border = true
-    rr.borderSize = 0.22
+    rr.borderSize = 0.4
     rr.borderColor = borderColor
     return rr
   }
