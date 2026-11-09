@@ -1,5 +1,5 @@
 // B2BMaintenanceAuditLogUI.ts
-// Owns: the System Audit Log panel that slides out from the right side of the
+// Owns: the System Audit Log panel that rises up from behind the top of the
 //       checklist and types terminal-style log lines (BlocTi / stoQr payloads),
 //       holds them, then fades out. Offline sync (real API failed) = yellow text.
 // Public API: showEntries(lines, offline, holdSeconds, done?), hide();
@@ -26,9 +26,9 @@ export class B2BMaintenanceAuditLogUI extends BaseScriptComponent {
   charsPerSecond: number = 60
 
   @input
-  @hint("Slide-out distance (cm) from behind the checklist")
+  @hint("Rise distance (cm) from behind the checklist below")
   @widget(new SliderWidget(0, 40, 1))
-  slideDistanceCm: number = 30
+  slideDistanceCm: number = 20
 
   @input
   @hint("Seconds for the slide-out / fade-out animations")
@@ -127,11 +127,11 @@ export class B2BMaintenanceAuditLogUI extends BaseScriptComponent {
     this.setOpacity(1)
     this.vis.show(0)
     const tr = this.slideRoot.getTransform()
-    tr.setLocalPosition(new vec3(-this.slideDistanceCm, 0, -0.5))
+    tr.setLocalPosition(new vec3(0, -this.slideDistanceCm, -0.5))
     this.anim = animate({
       duration: this.animSeconds,
       easing: "ease-out-quad",
-      update: (t: number) => tr.setLocalPosition(new vec3(-this.slideDistanceCm * (1 - t), 0, -0.5 * (1 - t))),
+      update: (t: number) => tr.setLocalPosition(new vec3(0, -this.slideDistanceCm * (1 - t), -0.5 * (1 - t))),
       ended: () => {
         this.anim = null
         this.typed = 0

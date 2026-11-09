@@ -200,10 +200,11 @@ export class B2BMaintenanceMain extends BaseScriptComponent {
     const workRight = edge + checklistW * cos
     this.placement.lateralOffsetCm = this.centerOnWorkZone ? -(workRight - 30 * s) / 2 : 0
 
-    // Audit log slides out just right of the checklist, same height and angle.
-    const auditW = 30 * p
-    const step = checklistW / 2 + 1 + auditW / 2
-    place(this.auditLogPanel.getSceneObject(), right.add(new vec3(step * cos, 0, step * sin)), -15)
+    // Audit log sits directly above the checklist, same x/z and angle.
+    const checklistH = 25 * p
+    const auditH = 20 * p
+    const lift = checklistH / 2 + 1 * p + auditH / 2
+    place(this.auditLogPanel.getSceneObject(), right.add(new vec3(0, lift, 0)), -15)
 
     // Left side: telemetry graph, mirrored angle.
     const telemetryW = 24 * p
