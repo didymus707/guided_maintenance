@@ -33,23 +33,16 @@
     auditLogPanel: false
     backendManager: false
     badgeHoldSeconds: false
-    centerOnWorkZone: false
     checklistPanel: false
     closeLogHoldSeconds: false
     completeBadge: false
     diagnosticsPanel: false
-    eyeLevel: false
     foldSeconds: false
-    panelFrontCm: false
-    panelGapCm: false
-    panelScale: false
     placement: false
     psus: false
     rack: false
     rackAnchor: false
-    rackDistanceCm: false
     rackFadeSeconds: false
-    rackScale: false
     telemetryGraph: false
     ticketId: false
   ScriptTypesHidden:
@@ -78,6 +71,7 @@
       badgeHoldSeconds: !<float> 3.000000
       rackFadeSeconds: 1.200000
       ticketId: !<string> 4471
+<<<<<<< LOCAL
       rackScale: 0.500000
       panelScale: 1.500000
       panelGapCm: !<float> 5.000000
@@ -85,6 +79,8 @@
       eyeLevel: true
       rackDistanceCm: !<float> 160.000000
       centerOnWorkZone: true
+=======
+>>>>>>> REMOTE
   ScriptTypes:
     -
       {}
@@ -112,14 +108,4 @@
     - '// @input float badgeHoldSeconds = 3 {"hint":"Seconds the Maintenance Complete badge hovers before the rack fades", "widget":"slider", "min":1, "max":10, "step":0.5}'
     - '// @input float rackFadeSeconds = 1.2 {"hint":"Seconds for the rack to fade out before the Lens resets", "widget":"slider", "min":0.2, "max":4, "step":0.1}'
     - '// @input string ticketId = "4471" {"hint":"Ticket ID sent to the backend"}'
-    - '// @ui {"widget":"group_end"}'
-    - '// @ui {"widget":"separator"}'
-    - '// @ui {"widget":"group_start", "label":"Layout"}'
-    - '// @input float rackScale = 0.5 {"hint":"Rack size multiplier (1 = real 60x200x100 cm rack). Smaller fits the whole rack in view", "widget":"slider", "min":0.3, "max":1, "step":0.05}'
-    - '// @input float panelScale = 1.5 {"hint":"Panel size multiplier (bigger panels = bigger text and buttons)", "widget":"slider", "min":0.8, "max":2, "step":0.05}'
-    - "// @input float panelGapCm = 5 {\"hint\":\"Gap (cm) between the rack's side edge and the checklist / telemetry panels\", \"widget\":\"slider\", \"min\":0, \"max\":40, \"step\":1}"
-    - "// @input float panelFrontCm = 10 {\"hint\":\"How far (cm) the side panels sit in front of the rack's front plane\", \"widget\":\"slider\", \"min\":0, \"max\":30, \"step\":1}"
-    - '// @input bool eyeLevel = true {"hint":"Lift the rack so the target chassis and panels sit at eye level (off = rack stands on the floor)"}'
-    - '// @input float rackDistanceCm = 160 {"hint":"Distance (cm) from you to the rack front when you anchor while looking straight ahead", "widget":"slider", "min":70, "max":300, "step":5}'
-    - '// @input bool centerOnWorkZone = true {"hint":"Shift the rack left so your gaze lands between the rack and the checklist (keeps both in view)"}'
     - '// @ui {"widget":"group_end"}'
