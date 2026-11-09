@@ -114,7 +114,7 @@ export class B2BMaintenanceMain extends BaseScriptComponent {
   @input
   @hint("Panel size multiplier (bigger panels = bigger text and buttons)")
   @widget(new SliderWidget(0.8, 2, 0.05))
-  panelScale: number = 1.3
+  panelScale: number = 1.5
 
   @input
   @hint("Gap (cm) between the rack's side edge and the checklist / telemetry panels")
@@ -125,6 +125,19 @@ export class B2BMaintenanceMain extends BaseScriptComponent {
   @hint("How far (cm) the side panels sit in front of the rack's front plane")
   @widget(new SliderWidget(0, 30, 1))
   panelFrontCm: number = 10
+
+  @input
+  @hint("Lift the rack so the target chassis and panels sit at eye level (off = rack stands on the floor)")
+  eyeLevel: boolean = true
+
+  @input
+  @hint("Distance (cm) from you to the rack front when you anchor while looking straight ahead")
+  @widget(new SliderWidget(70, 300, 5))
+  rackDistanceCm: number = 160
+
+  @input
+  @hint("Shift the rack left so your gaze lands between the rack and the checklist (keeps both in view)")
+  centerOnWorkZone: boolean = true
   @ui.group_end
 
   private _state: FlowStateName = FlowState.Placing
@@ -165,6 +178,8 @@ export class B2BMaintenanceMain extends BaseScriptComponent {
     if (this.placement.ghostPose) this.placement.ghostPose.getTransform().setLocalScale(one)
 
     const chassisY = 130 * s
+    this.placement.eyeLevelHeightCm = this.eyeLevel ? chassisY : -1
+    this.placement.defaultDistanceCm = this.rackDistanceCm
     const edge = 30 * s + this.panelGapCm // rack half-width + gap
     const z0 = this.panelFrontCm
     const cos = Math.cos(15 * deg)
@@ -181,6 +196,9 @@ export class B2BMaintenanceMain extends BaseScriptComponent {
     const right = new vec3(edge + (checklistW / 2) * cos, chassisY, z0 + (checklistW / 2) * sin)
     place(this.checklistPanel.getSceneObject(), right, -15)
     place(this.diagnosticsPanel.getSceneObject(), right, -15)
+    // Center the gaze on the span from the rack's left edge to the checklist's right edge.
+    const workRight = edge + checklistW * cos
+    this.placement.lateralOffsetCm = this.centerOnWorkZone ? -(workRight - 30 * s) / 2 : 0
 
     // Audit log slides out just right of the checklist, same height and angle.
     const auditW = 30 * p
@@ -194,6 +212,7 @@ export class B2BMaintenanceMain extends BaseScriptComponent {
     // Badge hovers just above the target chassis.
     place(this.completeBadge.getSceneObject(), new vec3(0, chassisY + 20 * s + 8 * p, 8), 0)
     print("[B2BMaintenance] layout: rackScale=" + s + " panelScale=" + p +
+      " distance=" + this.rackDistanceCm + " lateral=" + this.placement.lateralOffsetCm.toFixed(1) +
       " ghostScale=" + (this.placement.ghostPose ? this.placement.ghostPose.getTransform().getWorldScale().y.toFixed(2) : "none"))
   }
 

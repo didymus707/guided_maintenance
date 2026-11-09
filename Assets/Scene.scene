@@ -1001,6 +1001,13 @@
     badgeHoldSeconds: true
     rackFadeSeconds: true
     ticketId: true
+    rackScale: true
+    panelScale: true
+    panelGapCm: true
+    panelFrontCm: true
+    eyeLevel: true
+    rackDistanceCm: true
+    centerOnWorkZone: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -1022,6 +1029,13 @@
       badgeHoldSeconds: !<float> 3.000000
       rackFadeSeconds: 1.200000
       ticketId: !<string> 4471
+      rackScale: 0.500000
+      panelScale: 1.300000
+      panelGapCm: !<float> 5.000000
+      panelFrontCm: !<float> 10.000000
+      eyeLevel: true
+      rackDistanceCm: !<float> 160.000000
+      centerOnWorkZone: true
   ScriptTypes:
     "":
       {}
